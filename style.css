@@ -1,0 +1,180 @@
+/* ================= PAGE ================= */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffd6e7,#ffe9f2,#fff5f9);
+  overflow-x:hidden;
+  padding:20px;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+ from{opacity:0; transform:translateY(10px);}
+ to{opacity:1; transform:translateY(0);}
+}
+
+html,body{ overflow-x:hidden; }
+
+h1{
+  font-family:'Pacifico',cursive;
+  color:#ff4d8d;
+  font-size:clamp(26px, 7vw, 42px);
+  margin:8px 0;
+}
+
+#typing{ font-size:clamp(22px, 5vw, 32px); margin-bottom:6px; }
+#question{ font-size:clamp(26px,6vw,36px); }
+
+p{
+  color:#555;
+  max-width:420px;
+  font-size:clamp(15px, 4vw, 18px);
+  line-height:1.4;
+}
+
+/* ================= BUTTONS ================= */
+button{
+  padding:14px 22px;
+  font-size:clamp(15px,3.5vw,18px);
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  min-width:140px;
+}
+
+#yesBtn{
+  background:#ff4d8d;
+  color:white;
+  box-shadow:0 4px 15px rgba(255,77,141,.4);
+  animation:heartbeat 1.5s infinite;
+}
+
+#noBtn{
+  background:white;
+  color:#ff6fa5;
+  border:2px solid #ff6fa5;
+  font-weight:600;
+  white-space:nowrap;
+  width:max-content;
+}
+
+.btnRow{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:nowrap;
+  width:100%;
+  margin-top:10px;
+}
+
+@media (max-width:380px){
+  .btnRow button{
+    font-size:14px;
+    padding:10px 14px;
+  }
+}
+
+@keyframes heartbeat{
+ 0%{transform:scale(1);}
+ 25%{transform:scale(1.05);}
+ 40%{transform:scale(1);}
+ 60%{transform:scale(1.05);}
+ 100%{transform:scale(1);}
+}
+
+/* ================= GIF ================= */
+#valentineGif{
+  width:min(220px,60vw);
+  border-radius:20px;
+  margin:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* ================= FLOATING HEARTS ================= */
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
+
+/* ================= YES PAGE ================= */
+#yesText{
+  color:#ff4d8d;
+  animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+ 0%,100%{transform:translateY(0);}
+ 50%{transform:translateY(-12px);}
+}
+
+/* ================= LOVE LETTER ================= */
+#loveLetter{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:0.8s;
+  z-index:99999;
+}
+
+#loveLetter.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.letterPaper{
+  position:relative;
+  background:#fffafc;
+  max-width:420px;
+  padding:35px;
+  border-radius:20px;
+  font-family:'Poppins',sans-serif;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  animation:letterPop 0.6s ease;
+  line-height:1.7;
+  text-align:justify;
+}
+
+@keyframes letterPop{
+  from{ transform:scale(0.7); opacity:0;}
+  to{ transform:scale(1); opacity:1;}
+}
+
+.letterPaper h2{ text-align:center; color:#ff4fa3; }
+.bigLine{ font-size:22px; font-weight:bold; text-align:center; }
+.sign{ text-align:right; margin-top:15px; }
+
+/* ================= 🌸 PETALS (NEW) ================= */
+.petal{
+  position:fixed;
+  pointer-events:none;
+  z-index:99998;
+  opacity:.85;
+  filter:blur(.2px);
+}
+
+/* ================= 🦋 BUTTERFLY (NEW) ================= */
+.butterfly{
+  position:absolute;
+  width:260px;
+  pointer-events:none;
+  z-index:5;
+  filter:saturate(1.4) contrast(1.1);
+}
+
+#ginayumaText{
+  text-align:center;
+  font-size:clamp(18px,6vw,36px);
+  transition:all .8s ease;
+}
