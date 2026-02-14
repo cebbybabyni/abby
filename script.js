@@ -11,6 +11,7 @@ function type(){
  }}
 type();
 
+
 //////////////////// HEART BURST CLICK ////////////////////
 document.addEventListener("click", function(e){
 for(let i=0;i<10;i++){
@@ -21,6 +22,7 @@ heart.style.left=e.clientX+"px";
 heart.style.top=e.clientY+"px";
 heart.style.fontSize=(Math.random()*10+18)+"px";
 heart.style.pointerEvents="none";
+heart.style.zIndex="100000";
 document.body.appendChild(heart);
 
 const x=(Math.random()-0.5)*200;
@@ -35,6 +37,7 @@ setTimeout(()=>heart.remove(),1200);
 }
 });
 
+
 //////////////////// FLOATING HEARTS ////////////////////
 setInterval(()=>{
 let heart=document.createElement("div");
@@ -45,6 +48,7 @@ heart.style.bottom="-30px";
 heart.style.fontSize=(Math.random()*12+16)+"px";
 heart.style.opacity="0.6";
 heart.style.pointerEvents="none";
+heart.style.zIndex="9000";
 document.body.appendChild(heart);
 
 heart.animate([
@@ -54,6 +58,7 @@ heart.animate([
 
 setTimeout(()=>heart.remove(),9000);
 },1200);
+
 
 //////////////////// BUTTONS ////////////////////
 const noBtn=document.getElementById("noBtn");
@@ -80,6 +85,7 @@ noBtn.style.top=y+"px";
 noBtn.onmouseover=move;
 noBtn.onclick=move;
 
+
 //////////////////// YES PAGE ////////////////////
 yesBtn.onclick=()=>{
 
@@ -95,27 +101,30 @@ music.play().then(()=>{
  },300);
 }).catch(()=>{document.addEventListener("click",()=>music.play(),{once:true});});
 
+
 document.body.innerHTML=`
-<div style="padding:30px; max-width:520px;">
-<img src="https://media3.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" 
-style="width:320px;max-width:85vw;border-radius:20px;margin-bottom:15px;">
 
-<h1 id="yesText" style="font-family:Pacifico;">She said YES gaizzz!!! 💕</h1>
+<!-- 🌸 STICKY NOTES IN BACKGROUND -->
+<div class="sticky-notes">
+  <div class="note n1">My baby, Abby! 💕</div>
+  <div class="note n2">Happy Valentine’s Day! 💌</div>
+  <div class="note n3">I love you 🥰</div>
+  <div class="note n4">I miss you, always 🥹</div>
+  <div class="note n5">You make me *orny 🌽</div>
+  <div class="note n6">You make me happy 🤗</div>
+</div>
 
-<p id="loveMsg" style="
-text-align:left"></p>
-</div>`;
+<div id="yesScreen">
+  <div id="yesContent">
 
-const msg=`So you agree? Ginayuma mo nga ako? Hahaha joke lang po. Happy Valentine’s Day, baby! I love you. I miss you. You’re all I think about.
+  <img src="https://media3.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+style="width:320px;max-width:85vw;border-radius:20px;margin-bottom:15px; position:relative; z-index:1;">
 
-Sana naman next Valentine’s magka-date na tayo ☺️`;
-let j=0;
-function typeLove(){
- if(j<msg.length){
-   document.getElementById("loveMsg").innerHTML+=msg.charAt(j);
-   j++; setTimeout(typeLove,40);
- }}
-typeLove();
+    <h1 id="yesText" style="font-family:Pacifico;">She said YES gaizzz!!! 💕</h1>
+
+  </div>
+</div>
+`;
 
 //////////////// RANDOM HEART BURSTS ON YES PAGE ////////////////////
 setInterval(()=>{
@@ -128,6 +137,7 @@ setInterval(()=>{
   heart.style.left=centerX+"px";
   heart.style.top=centerY+"px";
   heart.style.fontSize="22px";
+  heart.style.zIndex="9000";
   document.body.appendChild(heart);
   const angle=Math.random()*2*Math.PI;
   const distance=Math.random()*200+50;
@@ -140,6 +150,7 @@ setInterval(()=>{
   setTimeout(()=>heart.remove(),1400);
  }
 },2000);
+
 
 //////////////////// CREATE EASTER EGG LETTER ////////////////////
 const letter=document.createElement("div");
@@ -165,14 +176,17 @@ letter.innerHTML=`
 <p>Thank you kasi dumating ka sa buhay ko. Thank you kasi kahit nabuburnout ako sa work, nung naalala ko to parang gusto ko pang mag-extend ng mga five years eme haha.</p>
 <p>Thank you… binuhay mo ako. Thank you for making me do this kahit hindi mo naman ako inutusan. Thank you for being my inspiration without even trying.</p>
 <p>Sobrang mais ko na ba? HAHAHAHAHA OKI BYE NA GAROD!</p>
-<p style="font-weight:bold;">I love you, my baby abby! 💗😚😚😚</p>
+<p style="font-weight:bold;">I love you, my baby Abby! 💗😚😚😚</p>
 <p>Love,<br>Cebby — baliw na baliw pa rin sayo 😵‍💫</p>
 
 <button id="closeLetter" style="margin-top:20px;width:100%;padding:12px;border:none;border-radius:30px;background:#ff4fa3;color:white;">Close 💌</button>
 </div>`;
 document.body.appendChild(letter);
 
+
 //////////////// PERFECT LETTER-FIT PETALS ////////////////////
+let letterOpen = false;
+
 function spawnPetal(){
 
  if(!letterOpen) return;
@@ -211,6 +225,7 @@ function spawnPetal(){
  setTimeout(()=>petal.remove(),20000);
 }
 
+
 //////////////// BUTTERFLY ////////////////////
 function spawnButterfly(){
  if(document.querySelector(".butterfly")) return;
@@ -227,12 +242,13 @@ function spawnButterfly(){
  card.appendChild(b);
 }
 
+
 //////////////// OPEN LETTER AFTER 10 TAPS ////////////////////
 let taps=0;
 document.addEventListener("click",function(e){
  if(e.target.id==="closeLetter"){letter.style.display="none";letterOpen=false;taps=0;return;}
  taps++;
- if(taps>=10){
+ if(taps>=24){
   letter.style.display="flex";
   letterOpen=true;
   spawnButterfly();
@@ -242,3 +258,4 @@ document.addEventListener("click",function(e){
 
 };
 });
+
