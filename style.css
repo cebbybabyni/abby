@@ -322,3 +322,46 @@ button{
 body > div[style*="backdrop-filter"]{
   z-index:99998 !important;
 }
+
+#yesBubble{
+  position:fixed !important;  /* lock to screen */
+  top:12px;
+  right:12px;
+  left:auto;
+  bottom:auto;
+  width:130px;
+  z-index:999999;             /* stay above everything */
+  pointer-events:none;        /* prevents layout shifting */
+}
+
+#bubbleImg{
+  width:100%;
+  display:block;
+}
+
+/* container centered inside bubble */
+#bubbleText{
+  position:absolute;
+  top:52%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:72%;              /* tighter so it fits bubble shape */
+  text-align:center;
+  color:#6b4b2a;
+  font-weight:700;
+  line-height:1.1;
+}
+
+/* top line text */
+#bubbleText{
+  font-size:8.5px;
+  white-space:nowrap;     /* keep text in one line */
+}
+
+/* count centered under text */
+#yesCount{
+  display:block;
+  margin-top:2px;
+  font-size:15px;
+  font-weight:900;
+}
